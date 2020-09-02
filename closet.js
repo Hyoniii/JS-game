@@ -1,3 +1,4 @@
+const storeBtn = document.getElementById("JS_store");
 const oneBtn = document.getElementById("JS_shirts");
 const twoBtn = document.getElementById("JS_pants");
 const thrBtn = document.getElementById("JS_skirt");
@@ -6,14 +7,20 @@ const fiveBtn = document.getElementById("JS_yellow");
 const sixBtn = document.getElementById("JS_pink");
 const listBox = document.getElementById("JS_list");
 
-function handleShirts() {
-  const li = document.createElement("li");
-  li.innerText = "hi";
-  listBox.appendChild(li);
+function loadItems() {
+  return fetch("data/data.json")
+    .then((res) => res.json())
+    .then((json) => console.log(json));
 }
 
-function init() {
-  oneBtn.addEventListener("click", handleShirts);
-}
+loadItems()
+  .then((items) => {})
+  .catch(console.log);
 
-init();
+//function init() {
+
+//storeBtn.addEventListener("click",handleStore)
+//oneBtn.addEventListener("click", handleShirts);
+//}
+
+//init();
